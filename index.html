@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css">
+        <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
+        <style>
+        html, body, #map {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+        </style>
+        <title></title>
+    </head>
+    <body>
+        <div id="map">
+        </div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script>
+        <script src="js/multi-style-layer.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet.pattern.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/rbush.min.js"></script>
+        <script src="js/labelgun.min.js"></script>
+        <script src="js/labels.js"></script>
+        <script src="data/001_districts_0.js"></script>
+        <script src="data/002_rail_1.js"></script>
+        <script src="data/004_streets_2.js"></script>
+        <script src="data/006_bike_lanes_3.js"></script>
+        <script>
+        var map = L.map('map', {
+            zoomControl:true, maxZoom:28, minZoom:1
+        }).fitBounds([[36.624330490874655,-120.04877866823225],[36.942866195914945,-119.45757998831321]]);
+        var hash = new L.Hash(map);
+        map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="http://leafletjs.com" title="A JS library for interactive maps">Leaflet</a>');
+        var bounds_group = new L.featureGroup([]);
+        function setBounds() {
+        }
+        function pop_001_districts_0(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Title'] !== null ? Autolinker.link(String(feature.properties['Title'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Council Me'] !== null ? Autolinker.link(String(feature.properties['Council Me'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['photo'] !== null ? Autolinker.link(String(feature.properties['photo'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Phone'] !== null ? Autolinker.link(String(feature.properties['Phone'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Email'] !== null ? Autolinker.link(String(feature.properties['Email'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['BPAC Rep'] !== null ? Autolinker.link(String(feature.properties['BPAC Rep'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['BPAC Email'] !== null ? Autolinker.link(String(feature.properties['BPAC Email'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['photo_2'] !== null ? Autolinker.link(String(feature.properties['photo_2'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_001_districts_0_0(feature) {
+            switch(String(feature.properties['Title'])) {
+                case 'District 1':
+                    return {
+                pane: 'pane_001_districts_0',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(215,25,28,1.0)',
+            }
+                    break;
+                case 'District 2':
+                    return {
+                pane: 'pane_001_districts_0',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(241,124,74,1.0)',
+            }
+                    break;
+                case 'District 3':
+                    return {
+                pane: 'pane_001_districts_0',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(254,201,128,1.0)',
+            }
+                    break;
+                case 'District 4':
+                    return {
+                pane: 'pane_001_districts_0',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,255,191,1.0)',
+            }
+                    break;
+                case 'District 5':
+                    return {
+                pane: 'pane_001_districts_0',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(199,233,173,1.0)',
+            }
+                    break;
+                case 'District 6':
+                    return {
+                pane: 'pane_001_districts_0',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(128,191,172,1.0)',
+            }
+                    break;
+                case 'District 7':
+                    return {
+                pane: 'pane_001_districts_0',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(43,131,186,1.0)',
+            }
+                    break;
+            }
+        }
+        map.createPane('pane_001_districts_0');
+        map.getPane('pane_001_districts_0').style.zIndex = 400;
+        map.getPane('pane_001_districts_0').style['mix-blend-mode'] = 'normal';
+        var layer_001_districts_0 = new L.geoJson(json_001_districts_0, {
+            attribution: '',
+            pane: 'pane_001_districts_0',
+            onEachFeature: pop_001_districts_0,
+            style: style_001_districts_0_0,
+        });
+        bounds_group.addLayer(layer_001_districts_0);
+        map.addLayer(layer_001_districts_0);
+        function pop_002_rail_1(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['id'] !== null ? Autolinker.link(String(feature.properties['id'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_002_rail_1_0() {
+            return {
+                pane: 'pane_002_rail_1',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'round',
+                lineJoin: 'round',
+                weight: 2.0,
+                fillOpacity: 0,
+            }
+        }
+        function style_002_rail_1_1() {
+            return {
+                pane: 'pane_002_rail_1',
+            }
+        }
+        map.createPane('pane_002_rail_1');
+        map.getPane('pane_002_rail_1').style.zIndex = 401;
+        map.getPane('pane_002_rail_1').style['mix-blend-mode'] = 'normal';
+        var layer_002_rail_1 = new L.geoJson.multiStyle(json_002_rail_1, {
+            attribution: '',
+            pane: 'pane_002_rail_1',
+            onEachFeature: pop_002_rail_1,
+            styles: [style_002_rail_1_0,style_002_rail_1_1,]
+        });
+        bounds_group.addLayer(layer_002_rail_1);
+        map.addLayer(layer_002_rail_1);
+        function pop_004_streets_2(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['fid'] !== null ? Autolinker.link(String(feature.properties['fid'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['STR_NAME'] !== null ? Autolinker.link(String(feature.properties['STR_NAME'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['STR_TYPE'] !== null ? Autolinker.link(String(feature.properties['STR_TYPE'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+        function style_004_streets_2_0(feature) {
+            var context = {
+                feature: feature,
+                variables: {}
+            };
+            // Start of if blocks and style check logic
+            if (004_streets_2rule0_eval_expression(context)) {
+                  return {
+                pane: 'pane_004_streets_2',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 2.0,
+                fillOpacity: 0,
+            };
+                }
+                else if (004_streets_2rule1_eval_expression(context)) {
+                  return {
+                pane: 'pane_004_streets_2',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 1,
+                fillOpacity: 0,
+            };
+                }
+            else {
+                return {fill: false, stroke: false};
+            }
+        }
+        map.createPane('pane_004_streets_2');
+        map.getPane('pane_004_streets_2').style.zIndex = 402;
+        map.getPane('pane_004_streets_2').style['mix-blend-mode'] = 'normal';
+        var layer_004_streets_2 = new L.geoJson(json_004_streets_2, {
+            attribution: '',
+            pane: 'pane_004_streets_2',
+            onEachFeature: pop_004_streets_2,
+            style: style_004_streets_2_0,
+        });
+        bounds_group.addLayer(layer_004_streets_2);
+        map.addLayer(layer_004_streets_2);
+        function pop_006_bike_lanes_3(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['CLASS'] !== null ? Autolinker.link(String(feature.properties['CLASS'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_006_bike_lanes_3_0(feature) {
+            switch(String(feature.properties['CLASS'])) {
+                case 'I':
+                    return {
+                pane: 'pane_006_bike_lanes_3',
+                opacity: 1,
+                color: 'rgba(22,102,8,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 4.0,
+                fillOpacity: 0,
+            }
+                    break;
+                case 'II':
+                    return {
+                pane: 'pane_006_bike_lanes_3',
+                opacity: 1,
+                color: 'rgba(42,34,141,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 4.0,
+                fillOpacity: 0,
+            }
+                    break;
+                case 'III':
+                    return {
+                pane: 'pane_006_bike_lanes_3',
+                opacity: 1,
+                color: 'rgba(174,167,28,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 4.0,
+                fillOpacity: 0,
+            }
+                    break;
+            }
+        }
+        map.createPane('pane_006_bike_lanes_3');
+        map.getPane('pane_006_bike_lanes_3').style.zIndex = 403;
+        map.getPane('pane_006_bike_lanes_3').style['mix-blend-mode'] = 'normal';
+        var layer_006_bike_lanes_3 = new L.geoJson(json_006_bike_lanes_3, {
+            attribution: '',
+            pane: 'pane_006_bike_lanes_3',
+            onEachFeature: pop_006_bike_lanes_3,
+            style: style_006_bike_lanes_3_0,
+        });
+        bounds_group.addLayer(layer_006_bike_lanes_3);
+        map.addLayer(layer_006_bike_lanes_3);
+        setBounds();
+        </script>
+    </body>
+</html>
