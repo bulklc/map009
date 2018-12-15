@@ -754,30 +754,3 @@ function fnc__specialcol_(values, context) {
 function fnc_project_color(values, context) {
     return false;
 };
-
-
-
-function 004_streets_2rule0_eval_expression(context) {
-    // STR_TYPE = 'HWY' OR STR_TYPE = 'FWY'
-
-    var feature = context.feature;
-    
-    if (feature.properties) {
-        return true;
-    } else {
-        return true;
-    }
-}
-
-
-function 004_streets_2rule1_eval_expression(context) {
-    // STR_TYPE <> 'HWY' AND STR_TYPE <> 'FWY'
-
-    var feature = context.feature;
-    
-    if (feature.properties) {
-        return true;
-    } else {
-        return true;
-    }
-}
